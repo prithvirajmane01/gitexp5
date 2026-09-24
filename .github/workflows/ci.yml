@@ -1,0 +1,13 @@
+name:CI
+on:[push,pull_request]
+job:
+ test:
+  runs-on:ubuntu-latest
+   steps:
+    -uses: action/checkout@v4
+    -uses: action/checkout@v5
+     with:
+      python-version: "3.11"
+    -run: pip install pytest
+    -run: pytest -q
+    
